@@ -39,9 +39,10 @@
 <script setup>
 import { ref } from 'vue';
 import axios from 'axios';
+import router from '../router';
 
 let name = ref('');
-let email = ref('john@gmail.com');
+let email = ref('yyyy@gmail.com');
 let password = ref('1234');
 let message = ref('');
 
@@ -52,6 +53,7 @@ const register = async () => {
       password: password.value,
       name: name.value,
     });
+    router.push({ path: '/login' });
     message.value = data;
   } catch (error) {
     if (error.response.status === 404) message.value = 'Server antwortet nicht';

@@ -1,1 +1,2 @@
- GET http://localhost:3000/api/users/1/secret
+GET http://localhost:3000/api/users/1/secret
+##############

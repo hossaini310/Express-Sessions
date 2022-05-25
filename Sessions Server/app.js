@@ -19,11 +19,11 @@ app.use(express.static(path.join(dirname, '/public')));
 
 app.use(express.json());
 
-const {PORT, NODE_ENV, SESSION_LIFETIME, SESSION_NAME, SESSION_SECRET } = process.env;
+const { PORT, NODE_ENV, SESSION_LIFETIME, SESSION_NAME, SESSION_SECRET } = process.env;
 
 app.use('/api', routes);
 
 app.use(errorHandler);
 app.use(notFoundHandler);
 
-app.listen( PORT ?? 5000, () => console.log('server running'));
+app.listen(PORT ?? 5000, () => console.log(`server running on ${PORT}`));

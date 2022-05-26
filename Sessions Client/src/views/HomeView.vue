@@ -3,7 +3,7 @@
     <h1 class="text-center mt-3">Home</h1>
     <div class="d-flex flex-column">
       <div class="mx-auto">
-        <router-link @click="redirectLogin" to="/account">Account</router-link> |
+        <router-link to="/account">Account</router-link> |
         <router-link to="/login">Login</router-link> |
         <router-link to="/register">Register</router-link>
       </div>

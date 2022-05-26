@@ -45,4 +45,9 @@ const getSecret = (req, res) => {
   res.status(200).send(user.secret);
 };
 
-export { login, logout, register, getSecret };
+const redirectLogin = (req, res, next) => {
+  if (!req.session.userid) res.status(400).send('You are not logged in!');
+  else next();
+};
+
+export { login, logout, register, getSecret, redirectLogin };

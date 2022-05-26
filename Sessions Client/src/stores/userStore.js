@@ -11,7 +11,7 @@ export const useUserStore = defineStore('userStore', {
     };
   },
   getters: {
-    isAuthenticated: (state) => state.user.id != ''
+    isAuthenticated: (state) => state.user.id != '',
   },
   actions: {
     saveUserData(id, name) {

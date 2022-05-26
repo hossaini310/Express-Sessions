@@ -35,13 +35,28 @@
 
 <script setup>
 import { ref } from 'vue';
+import axios from 'axios';
+import router from '../router';
+import { useUserStore } from '@/stores/userStore';
+const userStore = useUserStore();
 
 let valid = ref(true);
 
 let email = ref('john@gmail.com');
 let password = ref('1234');
 
-const login = async () => {};
+const login = async () => {
+  try {
+    const { data } = await axios.post('/api/login', {
+      email: email.value,
+      password: password.value,
+    });
+    router.push({ path: '/account' });
+    userStore.saveUserData(data.id, data.name);
+  } catch (error) {
+    valid.value = false;
+  }
+};
 </script>
 
 <style lang="scss" scoped></style>

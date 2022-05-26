@@ -10,4 +10,18 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+import { useUserStore } from '@/stores/userStore';
+const userStore = useUserStore();
+
+const secret = ref('');
+
+onMounted(() => {
+  const data = axios.get(`/api/users/${userStore.user.id}/secret`);
+  data.then(({ data }) => {
+    secret.value = data;
+  });
+});
+</script>

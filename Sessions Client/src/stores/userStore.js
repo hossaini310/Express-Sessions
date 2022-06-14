@@ -24,4 +24,7 @@ export const useUserStore = defineStore('userStore', {
       this.user.name = '';
     },
   },
+  persist: {
+    storage: localStorage,
+  },
 });
